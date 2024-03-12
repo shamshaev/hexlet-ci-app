@@ -1,0 +1,16 @@
+name: actions
+
+on: push
+
+jobs:
+  my_second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@main
+      - name: project setup
+        run: make setup
+      - name: test execution
+        run: make test
+      - name: linter check
+        run: make lint
