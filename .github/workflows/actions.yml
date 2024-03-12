@@ -8,6 +8,11 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@main
+      - uses: actions/setup-node@main
+        with:
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
       - name: project setup
         run: make setup
       - name: test execution
